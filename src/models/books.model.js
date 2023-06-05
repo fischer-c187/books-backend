@@ -84,7 +84,7 @@ class BooksModel {
       const newBook = await newModelBooks.save();
       return newBook._id;
     } catch (error) {
-      throw error instanceof mongoose.Error.ValidatorError
+      throw (error instanceof mongoose.Error.ValidatorError)
         ? new ValidationError(error)
         : new DatabaseError(error);
     }
